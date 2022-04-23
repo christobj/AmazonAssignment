@@ -2,14 +2,21 @@ package com.assignment.pages;
 
 
 import com.assignment.enums.TextConditionEnum;
+import com.assignment.logging.Log;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
 public class ProductsListPage extends HomePage{
 
+    public ProductsListPage() {
+        PageFactory.initElements(getDriver(), this);
+    }
+
     public ProductsListPage refineBy (String group, String value) {
+        Log.info("Refining by " +value + " under Group " +group);
         WebElement refineElement = find(generateRefinedXpath(group,value));
         if (isElementPresent(refineElement)) {
             clickOn(refineElement);
@@ -24,14 +31,17 @@ public class ProductsListPage extends HomePage{
     }
 
     public ProductsListPage sortResultsBy(String sortBy) {
-        WebElement sortByButton = find(By.className("a-dropdown-container"));
-        waitTillClickable(sortByButton);
-        clickOn(sortByButton);
+        sleep(3);
+        Log.info("Sorting Results by " +sortBy);
+        waitTillClickable(generateWebElementForText("span", TextConditionEnum.EQUALS, "RESULTS"));
+        WebElement sortByButton = find(By.className("a-button-inner"));
+        mouseHoverAndClick(sortByButton);
         waitAndClick(generateWebElementForText("a", TextConditionEnum.EQUALS, sortBy));
         return this;
     }
 
-    public ProductDetailPage selectHighestPricedItem (int order) {
+    public ProductDetailPage selectHighestPricedItemBy (int order) {
+        Log.info("Selecting " +order + " largest item");
         List<WebElement> prices = findAll(By.xpath("//span[@class='a-price-whole']"));
         clickOn(prices.get(order-1));
         return new ProductDetailPage();

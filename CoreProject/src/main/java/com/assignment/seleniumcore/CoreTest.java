@@ -14,6 +14,8 @@ import java.util.Objects;
 
 public class CoreTest {
 
+    protected CoreTest() {}
+
     @BeforeMethod(alwaysRun = true)
     @Parameters(value = {"browser"})
     public void beforeMethod(@Optional("optional") String browser) {

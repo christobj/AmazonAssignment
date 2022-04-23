@@ -1,13 +1,13 @@
 package com.assignment.pages;
 
-import com.assignment.constants.AmazonConstants;
 import com.assignment.enums.AmazonPropertyEnums;
 import com.assignment.enums.TextConditionEnum;
 import com.assignment.filereaders.PropertyReader;
+import com.assignment.logging.Log;
 import com.assignment.seleniumcore.CorePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.testng.annotations.BeforeMethod;
+import org.openqa.selenium.support.PageFactory;
 
 public class HomePage extends CorePage {
 
@@ -17,12 +17,12 @@ public class HomePage extends CorePage {
     @FindBy (id = "nav-hamburger-menu")
     private WebElement hamburgerMenu;
 
-    @BeforeMethod(alwaysRun = true)
-    public void beforeHomePage() {
-        PropertyReader.setProperty(AmazonConstants.getPATHTOAMAZONPROPERTY());
+    public HomePage() {
+        PageFactory.initElements(getDriver(), this);
     }
 
     public HomePage launchApplicationUnderTest() {
+        Log.info("Launching Application Under Test..!");
         openURL(PropertyReader.getProperty(AmazonPropertyEnums.AUT));
         verifyContentLoaded();
         return this;
@@ -34,6 +34,7 @@ public class HomePage extends CorePage {
     }
 
     public ProductsListPage navigateToProductListViaMenu(String mainMenu, String subMenu) {
+        Log.info("Navigating to "+subMenu +" under " +mainMenu);
         clickOn(hamburgerMenu);
         waitAndClick(generateWebElementForText("div", TextConditionEnum.EQUALS, mainMenu));
         waitAndClick(generateWebElementForText("a", TextConditionEnum.EQUALS, subMenu));

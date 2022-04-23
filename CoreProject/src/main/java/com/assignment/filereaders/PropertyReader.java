@@ -1,5 +1,6 @@
 package com.assignment.filereaders;
 
+import com.assignment.logging.Log;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
@@ -9,7 +10,7 @@ import java.util.*;
 
 import static org.testng.Assert.*;
 
-public class PropertyReader {
+public final class PropertyReader {
 
     private PropertyReader() {
     }
@@ -25,7 +26,7 @@ public class PropertyReader {
             } else
                 fail("Please set the path of property File correctly");
         } else {
-            //TODO Log
+            Log.info("Path Already Set");
         }
     }
 
@@ -39,7 +40,7 @@ public class PropertyReader {
                 }
             }
         } catch (Exception e) {
-            //TODO Log
+            Log.warn("Exception happened during setting System Properties ");
             e.printStackTrace();
         }
     }

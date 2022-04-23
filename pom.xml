@@ -23,6 +23,8 @@
         <extentreports.version>5.0.9</extentreports.version>
         <lombok.version>1.18.24</lombok.version>
         <javafaker.version>1.0.2</javafaker.version>
+        <slf4j.version>1.7.36</slf4j.version>
+        <opencsv.version>5.6</opencsv.version>
         <suiteFile/>
     </properties>
 
@@ -58,6 +60,19 @@
             <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>${opencsv.version}</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>
@@ -70,14 +85,6 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>${suiteFile}</suiteXmlFile>
                     </suiteXmlFiles>
-                    <properties>
-                        <property>
-                            <name>listener</name>
-                            <value>org.ctf.listeners.ChristoListener</value>
-                            <value>org.ctf.listeners.MethodInterceptor</value>
-                            <value>org.ctf.listeners.AnnotationTransformer</value>
-                        </property>
-                    </properties>
                 </configuration>
             </plugin>
             <plugin>

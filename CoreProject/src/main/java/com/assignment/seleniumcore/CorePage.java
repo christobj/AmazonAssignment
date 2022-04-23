@@ -1,16 +1,14 @@
 package com.assignment.seleniumcore;
 
-
 import com.assignment.enums.PropertyEnum;
 import com.assignment.enums.TextConditionEnum;
 import com.assignment.filereaders.PropertyReader;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Sleeper;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.BeforeMethod;
 
 import java.time.Clock;
 import java.time.Duration;
@@ -22,12 +20,6 @@ import static org.testng.Assert.fail;
 public class CorePage extends CoreTest {
 
     private static int timeout;
-
-    @BeforeMethod(alwaysRun = true)
-    public void beforeCorePage() {
-        WebDriver driver = getDriver();
-        PageFactory.initElements(driver, this);
-    }
 
     protected static void openURL(String url) {
         timeout = Integer.parseInt(PropertyReader.getProperty(PropertyEnum.WEBDRIVERWAIT));
@@ -110,6 +102,11 @@ public class CorePage extends CoreTest {
         for (String handle : winHandles) {
             getDriver().switchTo().window(handle);
         }
+    }
+
+    protected static void mouseHoverAndClick (WebElement element) {
+        Actions actions = new Actions(getDriver());
+        actions.moveToElement(element).click().build().perform();
     }
 
 }
