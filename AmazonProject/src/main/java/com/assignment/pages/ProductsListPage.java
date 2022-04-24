@@ -3,12 +3,13 @@ package com.assignment.pages;
 
 import com.assignment.enums.TextConditionEnum;
 import com.assignment.logging.Log;
+import com.assignment.seleniumcore.CorePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class ProductsListPage extends HomePage{
+public class ProductsListPage extends CorePage {
 
     public ProductsListPage refineBy (String group, String value) {
         Log.info("Refining by " +value + " under Group " +group);
