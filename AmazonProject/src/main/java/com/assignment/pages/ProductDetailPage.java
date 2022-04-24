@@ -13,10 +13,6 @@ import static org.testng.Assert.assertTrue;
 
 public class ProductDetailPage extends CorePage {
 
-    public ProductDetailPage() {
-        PageFactory.initElements(getDriver(), this);
-    }
-
     public ProductDetailPage getAboutItemValue() {
         switchToLatestWindow();
         WebElement aboutItem = find(By.id("featurebullets_feature_div"));

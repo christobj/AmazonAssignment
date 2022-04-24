@@ -45,7 +45,7 @@ public final class PropertyReader {
         }
     }
 
-    public static String getProperty (Enum property) {
+    public static String getProperty (Enum<?> property) {
         return Objects.isNull(System.getProperty(property.name())) ? "" : System.getProperty(property.name());
     }
 }

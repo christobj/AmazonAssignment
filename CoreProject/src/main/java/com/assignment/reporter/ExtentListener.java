@@ -4,8 +4,10 @@ import com.assignment.constants.CoreConstants;
 import com.assignment.driver.DriverFactory;
 import com.assignment.enums.PropertyEnum;
 import com.assignment.filereaders.PropertyReader;
+import com.assignment.utils.ImageUtils;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.MediaEntityBuilder;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -60,7 +62,8 @@ public class ExtentListener implements ITestListener, ISuiteListener {
         if (parameters != null && parameters.length>0) {
             methodName = methodName + "_" + parameters[0].toString();
         }
-        extentMethod.get().fail("Test " +methodName +" is Failed due to " +result.getThrowable());
+        String imagePath = ImageUtils.takeScreenshot(DriverFactory.getDriver(), methodName);
+        extentMethod.get().fail(result.getThrowable(), MediaEntityBuilder.createScreenCaptureFromPath(imagePath).build());
     }
 
     @Override

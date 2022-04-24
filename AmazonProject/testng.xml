@@ -3,7 +3,7 @@
 <suite name="Amazon All Test Suite" >
     <listeners>
         <listener class-name="com.assignment.reporter.ExtentListener"/>
-        <listener class-name="com.assignment.listener.AmazonProjectListener"></listener>
+        <listener class-name="com.assignment.listener.AmazonProjectListener"/>
     </listeners>
     <test name="Amazon Assignment" thread-count="2" parallel= "tests">
         <classes>

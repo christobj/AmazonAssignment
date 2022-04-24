@@ -5,15 +5,10 @@ import com.assignment.enums.TextConditionEnum;
 import com.assignment.logging.Log;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
 public class ProductsListPage extends HomePage{
-
-    public ProductsListPage() {
-        PageFactory.initElements(getDriver(), this);
-    }
 
     public ProductsListPage refineBy (String group, String value) {
         Log.info("Refining by " +value + " under Group " +group);
@@ -35,12 +30,12 @@ public class ProductsListPage extends HomePage{
         Log.info("Sorting Results by " +sortBy);
         waitTillClickable(generateWebElementForText("span", TextConditionEnum.EQUALS, "RESULTS"));
         WebElement sortByButton = find(By.className("a-button-inner"));
-        mouseHoverAndClick(sortByButton);
+        waitAndClick(sortByButton);
         waitAndClick(generateWebElementForText("a", TextConditionEnum.EQUALS, sortBy));
         return this;
     }
 
-    public ProductDetailPage selectHighestPricedItemBy (int order) {
+    public ProductDetailPage selectItemBasedOnOrder(int order) {
         Log.info("Selecting " +order + " largest item");
         List<WebElement> prices = findAll(By.xpath("//span[@class='a-price-whole']"));
         clickOn(prices.get(order-1));

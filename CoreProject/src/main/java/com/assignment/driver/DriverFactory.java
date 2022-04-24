@@ -8,7 +8,10 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
 import java.util.Objects;
 
@@ -19,6 +22,8 @@ public final class DriverFactory {
     private DriverFactory() {
     }
 
+    private static OptionManager optionManager = new OptionManager();
+
     private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     public static synchronized void setDriver(String browser) {
@@ -28,9 +33,13 @@ public final class DriverFactory {
                 browser = "chrome";
             else
                 browser = browserInPropertyFile;
-            setLocalDriver(browser);
-            setTimeouts();
         }
+        Log.info(PropertyReader.getProperty(PropertyEnum.HUBURL));
+        if (PropertyReader.getProperty(PropertyEnum.HUBURL).isEmpty())
+            setLocalDriver(browser);
+        else
+            setRemoteDriver(browser);
+        setTimeouts();
     }
 
     private static synchronized void setLocalDriver(String browser) {
@@ -44,6 +53,24 @@ public final class DriverFactory {
         } else {
             Log.warn("No Browser is mentioned");
             fail("Unable to create driver, Specified Browser not Found: " + browser);
+        }
+    }
+
+    private static synchronized void setRemoteDriver(String browser) {
+        String hubUrl = PropertyReader.getProperty(PropertyEnum.HUBURL);
+        Log.info("Setting up Remote Drivers");
+        try {
+            if (browser.equalsIgnoreCase(BrowserEnum.CHROME.name())) {
+                driver.set(new RemoteWebDriver(new URL(hubUrl), optionManager.getChromeOptions()));
+            } else if (browser.equalsIgnoreCase(BrowserEnum.EDGE.name())) {
+                driver.set(new RemoteWebDriver(new URL(hubUrl), optionManager.getEdgeOptions()));
+            } else {
+                Log.warn("No Browser is mentioned");
+                fail("Unable to create remote driver, Specified Browser not Found: " + browser);
+            }
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+            fail("Unable to create remote driver, Please check Hub URL");
         }
     }
 

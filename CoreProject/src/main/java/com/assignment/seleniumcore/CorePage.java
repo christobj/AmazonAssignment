@@ -65,9 +65,9 @@ public class CorePage extends CoreTest {
         return getDriver().findElements(locator);
     }
 
-    protected static void sleep (int seconds) {
+    protected static void sleep(int seconds) {
         try {
-            Thread.sleep(seconds*1000L);
+            Thread.sleep(seconds * 1000L);
         } catch (Exception e) {
             e.printStackTrace();
             Thread.currentThread().interrupt();
@@ -88,7 +88,7 @@ public class CorePage extends CoreTest {
         clickOn(element);
     }
 
-    protected static FluentWait waitForClickable () {
+    protected static FluentWait waitForClickable() {
         return (new FluentWait(getDriver(), Clock.systemDefaultZone(), Sleeper.SYSTEM_SLEEPER)).withTimeout(Duration.ofSeconds(timeout))
                 .pollingEvery(Duration.ofSeconds(1)).ignoring(ElementClickInterceptedException.class, NoSuchElementException.class);
     }
@@ -103,10 +103,4 @@ public class CorePage extends CoreTest {
             getDriver().switchTo().window(handle);
         }
     }
-
-    protected static void mouseHoverAndClick (WebElement element) {
-        Actions actions = new Actions(getDriver());
-        actions.moveToElement(element).click().build().perform();
-    }
-
 }

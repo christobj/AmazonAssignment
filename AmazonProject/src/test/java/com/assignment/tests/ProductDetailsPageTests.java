@@ -17,7 +17,7 @@ public class ProductDetailsPageTests extends CoreTest {
                 .navigateToProductListViaMenu(mainMenu, subMenu)
                 .refineBy(group, value)
                 .sortResultsBy(sortBy)
-                .selectHighestPricedItemBy(Integer.parseInt(order))
+                .selectItemBasedOnOrder(Integer.parseInt(order))
                 .getAboutItemValue();
     }
 

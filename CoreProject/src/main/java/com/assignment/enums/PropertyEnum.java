@@ -4,5 +4,6 @@ public enum PropertyEnum {
 
     BROWSER,
     WEBDRIVERWAIT,
-    IMPLICITWAIT;
+    IMPLICITWAIT,
+    HUBURL;
 }
