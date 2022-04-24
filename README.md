@@ -21,6 +21,7 @@
 5. All Common utility methods available in CoreProject
 6. Can be used for Multiple Projects (Example: Amazon Project)
 7. Amazon Project Configurations can be changed or added from amazon.properties inside AmazonProject/src/test/resources
+8. If you need to check the same Test for Multiple Data, add you Test Data in CSV file inside AmazonAssignment\AmazonProject\src\test\java\com\assignment\testData
 
 ## Running Tests :
 
