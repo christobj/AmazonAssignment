@@ -1,6 +1,6 @@
 package com.assignment.filereaders;
 
-import com.assignment.logging.Log;
+import com.assignment.enums.LoggerEnums;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
@@ -8,6 +8,7 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.util.*;
 
+import static com.assignment.logging.CoreLog.log;
 import static org.testng.Assert.*;
 
 public final class PropertyReader {
@@ -26,7 +27,7 @@ public final class PropertyReader {
             } else
                 fail("Please set the path of property File correctly");
         } else {
-            Log.info("Path Already Set");
+            log(LoggerEnums.LOGGERWARN, "Path Already Set");
         }
     }
 
@@ -40,7 +41,7 @@ public final class PropertyReader {
                 }
             }
         } catch (Exception e) {
-            Log.warn("Exception happened during setting System Properties ");
+            log(LoggerEnums.LOGGERWARN, "Exception happened during setting System Properties ");
             e.printStackTrace();
         }
     }

@@ -2,6 +2,7 @@ package com.assignment.reporter;
 
 import com.assignment.constants.CoreConstants;
 import com.assignment.driver.DriverFactory;
+import com.assignment.enums.LoggerEnums;
 import com.assignment.enums.PropertyEnum;
 import com.assignment.filereaders.PropertyReader;
 import com.assignment.utils.ImageUtils;
@@ -15,6 +16,8 @@ import org.testng.ISuite;
 import org.testng.ISuiteListener;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+
+import static com.assignment.logging.CoreLog.log;
 
 public class ExtentListener implements ITestListener, ISuiteListener {
 
@@ -52,7 +55,7 @@ public class ExtentListener implements ITestListener, ISuiteListener {
         if (parameters != null && parameters.length>0) {
             methodName = methodName + "_" + parameters[0].toString();
         }
-        extentMethod.get().pass("Test is Passed " +methodName);
+        log(LoggerEnums.EXTENTLOGGERPASS, "Test is Passed " +methodName);
     }
 
     @Override
@@ -73,7 +76,7 @@ public class ExtentListener implements ITestListener, ISuiteListener {
         if (parameters != null && parameters.length>0) {
             methodName = methodName + "_" + parameters[0].toString();
         }
-        extentMethod.get().fail("Test " +methodName +" is Skipped due to " +result.getThrowable());
+        log(LoggerEnums.EXTENTLOGGERFAIL, "Test " +methodName +" is Skipped due to " +result.getThrowable());
     }
 
     private String getDevicename() {

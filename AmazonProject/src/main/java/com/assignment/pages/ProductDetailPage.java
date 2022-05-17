@@ -1,14 +1,14 @@
 package com.assignment.pages;
 
-import com.assignment.logging.Log;
+import com.assignment.enums.LoggerEnums;
 import com.assignment.seleniumcore.CorePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 import java.util.StringJoiner;
 
+import static com.assignment.logging.CoreLog.log;
 import static org.testng.Assert.assertTrue;
 
 public class ProductDetailPage extends CorePage {
@@ -22,7 +22,7 @@ public class ProductDetailPage extends CorePage {
         StringJoiner about = new StringJoiner("<br />" ,"", "");
         aboutDescriptionText.stream()
                 .forEach(e -> about.add(e.getText()));
-        Log.info(about.toString());
+        log(LoggerEnums.EXTENTLOGGERINFO, about.toString());
         return this;
     }
 }

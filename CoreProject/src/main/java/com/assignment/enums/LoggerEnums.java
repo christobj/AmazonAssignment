@@ -1,0 +1,19 @@
+package com.assignment.enums;
+
+public enum LoggerEnums {
+
+    EXTENTPASS,
+    EXTENTFAIL,
+    EXTENTINFO,
+    EXTENTWARN,
+    LOGGERINFO,
+    LOGGERWARN,
+    LOGGERERROR,
+    LOGGERDEBUG,
+    LOGGERTRACE,
+    EXTENTLOGGERPASS,
+    EXTENTLOGGERFAIL,
+    EXTENTLOGGERWARN,
+    EXTENTLOGGERINFO
+
+}
