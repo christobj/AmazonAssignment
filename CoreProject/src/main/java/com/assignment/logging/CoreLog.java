@@ -17,21 +17,21 @@ public final class CoreLog {
     private CoreLog() {}
 
     private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass().getSimpleName());
-    private static Map<LoggerEnums, Consumer<String>> logMap = new EnumMap<>(LoggerEnums.class);
+    private static final Map<LoggerEnums, Consumer<String>> logMap = new EnumMap<>(LoggerEnums.class);
 
-    private static Consumer<String> extentPass = message -> ExtentListener.extentMethod.get().pass(message);
-    private static Consumer<String> extentFail = message -> ExtentListener.extentMethod.get().fail(message);
-    private static Consumer<String> extentInfo = message -> ExtentListener.extentMethod.get().info(message);
-    private static Consumer<String> extentWarn = message -> ExtentListener.extentMethod.get().warning(message);
-    private static Consumer<String> loggerInfo = message -> logger.info(message);
-    private static Consumer<String> loggerWarn = message -> logger.warn(message);
-    private static Consumer<String> loggerError = message -> logger.error(message);
-    private static Consumer<String> loggerDebug = message -> logger.debug(message);
-    private static Consumer<String> loggerTrace = message -> logger.trace(message);
-    private static Consumer<String> extentLoggerPass = extentPass.andThen(loggerInfo);
-    private static Consumer<String> extentLoggerFail = extentFail.andThen(loggerError);
-    private static Consumer<String> extentLoggerWarn = extentWarn.andThen(loggerWarn);
-    private static Consumer<String> extentLoggerInfo = extentInfo.andThen(loggerInfo);
+    private static final Consumer<String> extentPass = message -> ExtentListener.extentMethod.get().pass(message);
+    private static final Consumer<String> extentFail = message -> ExtentListener.extentMethod.get().fail(message);
+    private static final Consumer<String> extentInfo = message -> ExtentListener.extentMethod.get().info(message);
+    private static final Consumer<String> extentWarn = message -> ExtentListener.extentMethod.get().warning(message);
+    private static final Consumer<String> loggerInfo = logger::info;
+    private static final Consumer<String> loggerWarn = logger::warn;
+    private static final Consumer<String> loggerError = logger::error;
+    private static final Consumer<String> loggerDebug = logger::debug;
+    private static final Consumer<String> loggerTrace = logger::trace;
+    private static final Consumer<String> extentLoggerPass = extentPass.andThen(loggerInfo);
+    private static final Consumer<String> extentLoggerFail = extentFail.andThen(loggerError);
+    private static final Consumer<String> extentLoggerWarn = extentWarn.andThen(loggerWarn);
+    private static final Consumer<String> extentLoggerInfo = extentInfo.andThen(loggerInfo);
 
     static {
         logMap.put(EXTENTPASS, extentPass);

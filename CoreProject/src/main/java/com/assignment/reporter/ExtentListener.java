@@ -27,7 +27,7 @@ public class ExtentListener implements ITestListener, ISuiteListener {
 
     @Override
     public void onStart(ISuite suite) {
-        PropertyReader.setProperty(CoreConstants.getCONFIGPROPERTYPATH());
+        PropertyReader.setProperty(CoreConstants.getCONFIG_PROPERTY_PATH());
         extentReport = ExtentManager.getInstance("Amazon Assignment");
         extentReport.setSystemInfo("browser", PropertyReader.getProperty(PropertyEnum.BROWSER));
     }

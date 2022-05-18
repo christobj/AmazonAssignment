@@ -13,12 +13,12 @@ public final class ImageUtils {
     private ImageUtils() {}
 
     public static String takeScreenshot(WebDriver driver, String methodName) {
-        String fileLocation = CoreConstants.getPATHTOEXTENTREPORTS() + methodName + ".png";
+        String fileLocation = CoreConstants.getPATH_TO_EXTENT_REPORTS() + methodName + ".png";
         try {
             File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
             FileUtils.copyFile(srcFile, new File(fileLocation));
         } catch (Exception e) {
-            e.printStackTrace();;
+            e.printStackTrace();
         }
         return methodName + ".png";
     }

@@ -21,7 +21,7 @@ public final class ExtentManager {
     }
 
     private static ExtentReports createInstances(String fileName) {
-        ExtentSparkReporter sparkReporter = new ExtentSparkReporter(CoreConstants.getPATHTOEXTENTREPORTS() + "index" +".html").viewConfigurer()
+        ExtentSparkReporter sparkReporter = new ExtentSparkReporter(CoreConstants.getPATH_TO_EXTENT_REPORTS() + "index" +".html").viewConfigurer()
                 .viewOrder()
                 .as(new ViewName[] {
                         ViewName.DASHBOARD,

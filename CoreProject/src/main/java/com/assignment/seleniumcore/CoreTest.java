@@ -19,7 +19,7 @@ public class CoreTest {
     @BeforeMethod(alwaysRun = true)
     @Parameters(value = {"browser"})
     public void beforeMethod(@Optional("optional") String browser) {
-        PropertyReader.setProperty(CoreConstants.getCONFIGPROPERTYPATH());
+        PropertyReader.setProperty(CoreConstants.getCONFIG_PROPERTY_PATH());
         if (Objects.isNull(getDriver()))
             DriverFactory.setDriver(browser);
     }
