@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary">Amazon Assignment</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">24-04-2022 11:56:47 am</span></a>
+<a href="#"><span class="badge badge-primary">26-05-2022 07:53:52 am</span></a>
 </li>
 </ul>
 </div>
@@ -57,6 +57,11 @@
 <span class="ico"><i class="fa fa-tablet"></i></span>
 </a>
 </li>
+<li class="nav-item dropdown" onclick="toggleView('exception-view')">
+<a id="nav-exception" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bug"></i></span>
+</a>
+</li>
 </ul>
 </div>
 </div>      <div class="vcontainer">
@@ -66,25 +71,25 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>24-04-2022 11:56:47 am</h3>
+<h3>26-05-2022 07:53:52 am</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>24-04-2022 11:57:12 am</h3>
+<h3>26-05-2022 07:54:20 am</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-pass">Tests Passed</p>
-<h3>2</h3>
+<h3>1</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-fail">Tests Failed</p>
-<h3>0</h3>
+<h3>1</h3>
 </div></div>
 </div>
 </div>
@@ -100,12 +105,12 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'>
-<b>2</b> tests passed
+<div><small data-tooltip='50%'>
+<b>1</b> tests passed
 </small>
 </div>
 <div>
-<small data-tooltip='0%'><b>0</b> tests failed,
+<small data-tooltip='50%'><b>1</b> tests failed,
 <b>0</b> skipped, <b data-tooltip='0%'>0</b> others
 </small>
 </div>
@@ -123,10 +128,10 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='12%'><b>2</b> events passed</small></div>
+<div><small data-tooltip='8%'><b>1</b> events passed</small></div>
 <div>
-<small data-tooltip='0%'><b>0</b> events failed,
-<b data-tooltip='%'>14</b> others
+<small data-tooltip='8%'><b>1</b> events failed,
+<b data-tooltip='%'>10</b> others
 </small>
 </div>
 </div>
@@ -142,7 +147,7 @@
 </div></div>
 <script>
 var timeline = {
-"checkForAboutItem_TV, Appliances, Electronics":21.36,"checkForAboutItem_Mobiles, Computers":15.857
+"checkForAboutItem_AboutItem(TC_No=1, Main_Menu=TV, Appliances, Electronics, Sub_Menu=Televisions, Group=Brands, Value=Samsung, SortBy=Price: High to Low, SelectOrder=2)":16.038,"checkForAboutItem_AboutItem(TC_No=2, Main_Menu=Mobiles, Computers, Sub_Menu=Power Banks, Group=Battery Type, Value=Lithium Polymer, SortBy=Price: High to Low, SelectOrder=3)":7.971
 };
 </script>
 <div class="row">
@@ -153,12 +158,12 @@ var timeline = {
 <thead><tr class="bg-gray"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Others</th><th>Passed %</th></tr></thead>
 <tbody>
 <tr>
-<td>WINDOWS_msedge_100.0.1185.50</td>
-<td>2</td>
+<td>WINDOWS_chrome_101.0.4951.67</td>
+<td>1</td>
+<td>1</td>
 <td>0</td>
 <td>0</td>
-<td>0</td>
-<td>100%</td>
+<td>50%</td>
 </tr>
 </tbody>
 </table></div>
@@ -172,7 +177,7 @@ var timeline = {
 <tbody>
 <tr>
 <td>browser</td>
-<td>edge</td>
+<td>chrome</td>
 </tr>
 <tr>
 <td>AUT</td>
@@ -187,8 +192,8 @@ var timeline = {
 <script>
 var statusGroup = {
 parentCount: 5,
-passParent: 2,
-failParent: 0,
+passParent: 1,
+failParent: 1,
 warningParent: 0,
 skipParent: 0,
 childCount: 5,
@@ -204,11 +209,11 @@ warningGrandChild: 0,
 skipGrandChild: 0,
 infoGrandChild: 0,
 eventsCount: 5,
-passEvents: 2,
-failEvents: 0,
+passEvents: 1,
+failEvents: 1,
 warningEvents: 0,
 skipEvents: 0,
-infoEvents: 14
+infoEvents: 10
 };
 </script><div class="test-wrapper row view test-view">
   <div class="test-list">
@@ -221,6 +226,7 @@ infoEvents: 14
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
 <ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
 <a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>
+<a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
 <div class="dropdown-divider"></div>
 <a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
 </ul>
@@ -228,7 +234,7 @@ infoEvents: 14
 <li class="dropdown">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tablet"></i></a>
 <ul id="device-toggle" class="dropdown-menu dropdown-md p-v-0">
-<a class="dropdown-item" href="#">WINDOWS_msedge_100.0.1185.50</a>
+<a class="dropdown-item" href="#">WINDOWS_chrome_101.0.4951.67</a>
 </ul>
 </li>
 </ul>
@@ -237,11 +243,11 @@ infoEvents: 14
         <li class="test-item"  status="pass" test-id="1"
           author=""
           tag=""
-          device="WINDOWS_msedge_100.0.1185.50">
+          device="WINDOWS_chrome_101.0.4951.67">
           <div class="test-detail">
-            <p class="name">checkForAboutItem_TV, Appliances, Electronics</p>
+            <p class="name">checkForAboutItem_AboutItem(TC_No=1, Main_Menu=TV, Appliances, Electronics, Sub_Menu=Televisions, Group=Brands, Value=Samsung, SortBy=Price: High to Low, SelectOrder=2)</p>
             <p class="text-sm">
-              <span>11:56:50 am</span> / <span>00:00:21:360</span>
+              <span>7:53:54 am</span> / <span>00:00:16:038</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -249,15 +255,15 @@ infoEvents: 14
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">checkForAboutItem_TV, Appliances, Electronics</h5>
-<span class='badge badge-success'>04.24.2022 11:56:50 am</span>
-<span class='badge badge-danger'>04.24.2022 11:57:11 am</span>
-<span class='badge badge-default'>00:00:21:360</span>
+<h5 class="test-status text-pass">checkForAboutItem_AboutItem(TC_No=1, Main_Menu=TV, Appliances, Electronics, Sub_Menu=Televisions, Group=Brands, Value=Samsung, SortBy=Price: High to Low, SelectOrder=2)</h5>
+<span class='badge badge-success'>05.26.2022 7:53:54 am</span>
+<span class='badge badge-danger'>05.26.2022 7:54:11 am</span>
+<span class='badge badge-default'>00:00:16:038</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
 </div>
-<div class="m-t-15"><span class="badge badge-pill badge-default">WINDOWS_msedge_100.0.1185.50</span></div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">WINDOWS_chrome_101.0.4951.67</span></div>
 <div class="m-t-10 m-l-5">To Verify whether About Item is displayed</div>
 </div>
 </div><div class="detail-body mt-4">
@@ -266,56 +272,56 @@ infoEvents: 14
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>11:56:53 am</td>
+        <td>7:53:55 am</td>
         <td>
           Launching Application Under Test..!
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>11:56:55 am</td>
+        <td>7:53:57 am</td>
         <td>
           Navigating to Televisions under TV, Appliances, Electronics
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>11:56:58 am</td>
+        <td>7:53:59 am</td>
         <td>
           Refining by Samsung under Group Brands
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>11:57:05 am</td>
+        <td>7:54:03 am</td>
         <td>
           Sorting Results by Price: High to Low
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>11:57:07 am</td>
+        <td>7:54:05 am</td>
         <td>
           Selecting 2 largest item
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>11:57:11 am</td>
+        <td>7:54:11 am</td>
         <td>
-          Resolution : 8K QLED (7680 x 4320) resolution | Refresh Rate : 120 Hertz<br />Connectivity: 4 HDMI ports to connect set top box, Blu-ray speakers or a gaming console | 3 USB ports to connect hard drives or other USB devices<br />Sound: 70 Watts Output | Powerful Speakers with Dolby Digital Plus | Object Tracking Sound | Q Symphony<br />Smart TV Features : Prime Video, Hotstar, Netflix, Zee5 and more | Voice Assistant: Alexa. Bixby and Google Voice Assistant | Far Field Voice Interaction | Tap View | Multi View<br />Display : 8K Neo QLED Panel | Neo Slim Design | HDR10 + | 100% Color Volume with Quantum Dot | Quantum HDR 24x
+          Resolution : 4K Ultra HD (3840 x 2160) Resolution | Refresh Rate : 120 Hertz<br />Connectivity: 4 HDMI ports to connect set top box, Blu-ray speakers or a gaming console | 2 USB ports to connect hard drives or other USB devices | One Connect Box for all your connectivity needs<br />Sound: 60 Watts Output | Powerful Speakers with Dolby Digital Plus<br />Smart TV Features : Prime Video, Hotstar, Netflix, Zee5 and many more | PC Mode | Universal Guide | Web Browser | Screen Mirroring<br />Display: 100% Color Volume | Quantum HDR | Quantum Processor | HLG | Mega Contrast | Supreme UHD Dimming
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>11:57:11 am</td>
+        <td>7:54:11 am</td>
         <td>
-          Test is Passed checkForAboutItem_TV, Appliances, Electronics
+          Test is Passed checkForAboutItem_AboutItem(TC_No=1, Main_Menu=TV, Appliances, Electronics, Sub_Menu=Televisions, Group=Brands, Value=Samsung, SortBy=Price: High to Low, SelectOrder=2)
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>11:57:11 am</td>
+        <td>7:54:11 am</td>
         <td>
           Quitting the browser
         </td>
@@ -325,30 +331,30 @@ infoEvents: 14
 </div>
           </div>
         </li>
-        <li class="test-item"  status="pass" test-id="2"
+        <li class="test-item"  status="fail" test-id="2"
           author=""
           tag=""
-          device="WINDOWS_msedge_100.0.1185.50">
+          device="WINDOWS_chrome_101.0.4951.67">
           <div class="test-detail">
-            <p class="name">checkForAboutItem_Mobiles, Computers</p>
+            <p class="name">checkForAboutItem_AboutItem(TC_No=2, Main_Menu=Mobiles, Computers, Sub_Menu=Power Banks, Group=Battery Type, Value=Lithium Polymer, SortBy=Price: High to Low, SelectOrder=3)</p>
             <p class="text-sm">
-              <span>11:56:53 am</span> / <span>00:00:15:857</span>
-              <span class="badge pass-bg log float-right">Pass</span>
+              <span>7:54:12 am</span> / <span>00:00:07:971</span>
+              <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
           <div class="test-contents d-none">
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">checkForAboutItem_Mobiles, Computers</h5>
-<span class='badge badge-success'>04.24.2022 11:56:53 am</span>
-<span class='badge badge-danger'>04.24.2022 11:57:08 am</span>
-<span class='badge badge-default'>00:00:15:857</span>
+<h5 class="test-status text-fail">checkForAboutItem_AboutItem(TC_No=2, Main_Menu=Mobiles, Computers, Sub_Menu=Power Banks, Group=Battery Type, Value=Lithium Polymer, SortBy=Price: High to Low, SelectOrder=3)</h5>
+<span class='badge badge-success'>05.26.2022 7:54:12 am</span>
+<span class='badge badge-danger'>05.26.2022 7:54:20 am</span>
+<span class='badge badge-default'>00:00:07:971</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=2</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
 </div>
-<div class="m-t-15"><span class="badge badge-pill badge-default">WINDOWS_msedge_100.0.1185.50</span></div>
+<div class="m-t-15"><span class="badge badge-pill badge-default">WINDOWS_chrome_101.0.4951.67</span></div>
 <div class="m-t-10 m-l-5">To Verify whether About Item is displayed</div>
 </div>
 </div><div class="detail-body mt-4">
@@ -357,56 +363,89 @@ infoEvents: 14
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>11:56:53 am</td>
+        <td>7:54:12 am</td>
         <td>
           Launching Application Under Test..!
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>11:56:55 am</td>
+        <td>7:54:13 am</td>
         <td>
           Navigating to Power Banks under Mobiles, Computers
         </td>
       </tr>
       <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>11:56:57 am</td>
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>7:54:20 am</td>
         <td>
-          Refining by Lithium Polymer under Group Battery Type
+          <textarea readonly class="code-block">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//div[text()='Mobiles, Computers']"}
+  (Session info: chrome=101.0.4951.67)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.1.3', revision: '7b1ebf28ef'
+System info: host: 'CHRISTOPC', ip: '192.168.1.7', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [856f4d26fe86978b79d12b1767ca6725, findElement {using=xpath, value=//div[text()='Mobiles, Computers']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 101.0.4951.67, chrome: {chromedriverVersion: 101.0.4951.41 (93c720db8323..., userDataDir: C:\Users\jchri\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:49264}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:49264/devtoo..., se:cdpVersion: 101.0.4951.67, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 856f4d26fe86978b79d12b1767ca6725
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:567)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:385)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:377)
+	at com.assignment.seleniumcore.CorePage.find(CorePage.java:61)
+	at com.assignment.seleniumcore.CorePage.generateWebElementForText(CorePage.java:57)
+	at com.assignment.pages.HomePage.navigateToProductListViaMenu(HomePage.java:41)
+	at com.assignment.tests.ProductDetailsPageTests.checkForAboutItem(ProductDetailsPageTests.java:19)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:962)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:806)
+	at org.testng.TestRunner.run(TestRunner.java:601)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:433)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:427)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:387)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+	at org.testng.TestNG.runSuites(TestNG.java:1099)
+	at org.testng.TestNG.run(TestNG.java:1067)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:109)
+</textarea>
+          
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='checkForAboutItem_AboutItem(TC_No=2, Main_Menu=Mobiles, Computers, Sub_Menu=Power Banks, Group=Battery Type, Value=Lithium Polymer, SortBy=Price: High to Low, SelectOrder=3).png' src="checkForAboutItem_AboutItem(TC_No=2, Main_Menu=Mobiles, Computers, Sub_Menu=Power Banks, Group=Battery Type, Value=Lithium Polymer, SortBy=Price: High to Low, SelectOrder=3).png">
+    
+    </div></div>
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>11:57:03 am</td>
-        <td>
-          Sorting Results by Price: High to Low
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>11:57:05 am</td>
-        <td>
-          Selecting 3 largest item
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>11:57:08 am</td>
-        <td>
-          ✅【INIU’s Confidence】 At INIU, we use only the highest-grade materials, so we do have the confidence to provide industry-leading 3 years warranty.<br />✅【3X Faster Charging】The most advanced PD 3.0 & QC 4+ fast charging technologies combined—incredibly fast fuel your new iPhone from 0 to 60% in 35mins, 3X faster than original 1A chargers.<br />✅【Patented Built-in Phone Holder】Simply push out it for an optimal viewing of your phone while charging. Stream your favorite shows, Facetime your besties, or take charming selfies, all hands free.<br />✅【2-Pack Fast Portable Power】Get two 10500mAh PD chargers at once to fast fuel multiple devices, super helpful for family travel or business trip. Each packs 500mAh more than its kinds yet is 36% thinner, 15% smaller, 28% lighter to let you easily take them anywhere without feeling bulky and heavy.<br />✅【Charge Them All】Unlike the market’s most power banks failed to charge smaller devices like your AirPods, smart watch, Bluetooth headphone/speaker, fitness tracker, etc, INIU 10500 fits every device, no matter the size. And even more conveniently, you don’t bother to switch charge mode for the smaller ones, just insert and go.
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log pass-bg">Pass</span></td>
-        <td>11:57:08 am</td>
-        <td>
-          Test is Passed checkForAboutItem_Mobiles, Computers
-        </td>
-      </tr>
-      <tr class="event-row">
-        <td><span class="badge log info-bg">Info</span></td>
-        <td>11:57:08 am</td>
+        <td>7:54:20 am</td>
         <td>
           Quitting the browser
         </td>
@@ -436,15 +475,17 @@ infoEvents: 14
 <li class="test-item">
 <div class="test-detail">
 <span class="meta">
-<span class='badge log pass-bg'>2</span>
+<span class='badge log pass-bg'>1</span>
+<span class='badge log badge-danger'>1</span>
 </span>
-<p class="name">WINDOWS_msedge_100.0.1185.50</p>
+<p class="name">WINDOWS_chrome_101.0.4951.67</p>
 <p class="duration text-sm">2 tests</p>
 </div>
 <div class="test-contents d-none">
 <div class="info">
-<h4>WINDOWS_msedge_100.0.1185.50</h4>
-<span status="pass" class='badge log pass-bg'>2 passed</span>
+<h4>WINDOWS_chrome_101.0.4951.67</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
 </div>
 <table class='table table-sm mt-4'>
 <thead>
@@ -457,16 +498,65 @@ infoEvents: 14
 <tbody>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>11:56:50 am</td>
+<td>07:53:54 am</td>
 <td>
-<a href="#" class="linked" test-id='1' id='1'>checkForAboutItem_TV, Appliances, Electronics</a>
+<a href="#" class="linked" test-id='1' id='1'>checkForAboutItem_AboutItem(TC_No=1, Main_Menu=TV, Appliances, Electronics, Sub_Menu=Televisions, Group=Brands, Value=Samsung, SortBy=Price: High to Low, SelectOrder=2)</a>
 </td>
 </tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>11:56:53 am</td>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>07:54:12 am</td>
 <td>
-<a href="#" class="linked" test-id='2' id='2'>checkForAboutItem_Mobiles, Computers</a>
+<a href="#" class="linked" test-id='2' id='2'>checkForAboutItem_AboutItem(TC_No=2, Main_Menu=Mobiles, Computers, Sub_Menu=Power Banks, Group=Battery Type, Value=Lithium Polymer, SortBy=Price: High to Low, SelectOrder=3)</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="test-content scrollable">
+<div class="test-content-detail">
+<div class="detail-body"></div>
+</div>
+</div>
+</div><div class="test-wrapper row view exception-view attributes-view">
+<div class="test-list">
+<div class="test-list-tools">
+<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Exception</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">1</span></a></li></ul>
+</div>
+<div class="test-list-wrapper scrollable">
+<ul class="test-list-item">
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>1</span>
+</span>
+<p class="name">org.openqa.selenium.NoSuchElementException</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>org.openqa.selenium.NoSuchElementException</h4>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>07:54:12 am</td>
+<td>
+<a href="#" class="linked" test-id='2' id='2'>checkForAboutItem_AboutItem(TC_No=2, Main_Menu=Mobiles, Computers, Sub_Menu=Power Banks, Group=Battery Type, Value=Lithium Polymer, SortBy=Price: High to Low, SelectOrder=3)</a>
 </td>
 </tr>
 </tbody>

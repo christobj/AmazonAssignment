@@ -1,6 +1,8 @@
 package com.assignment.driver;
 
+import com.assignment.config.factory.CoreConfigFactory;
 import com.assignment.driver.factory.BrowserFactory;
+import com.assignment.enums.BrowserEnum;
 import com.assignment.enums.LoggerEnums;
 import com.assignment.enums.PropertyEnum;
 import com.assignment.filereaders.PropertyReader;
@@ -18,18 +20,12 @@ public final class DriverFactory {
 
     private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
-    public static synchronized void setDriver(String browser) {
-        String browserInPropertyFile = PropertyReader.getProperty(PropertyEnum.BROWSER);
-        if (browser.contentEquals("optional")) {
-            if (browserInPropertyFile.isEmpty())
-                browser = "chrome";
-            else
-                browser = browserInPropertyFile;
-        }
+    public static synchronized void setDriver() {
+        BrowserEnum browserInPropertyFile = CoreConfigFactory.getConfig().browser();
         if (PropertyReader.getProperty(PropertyEnum.HUBURL).isEmpty())
-            setLocalDriver(browser);
+            setLocalDriver(browserInPropertyFile.getBrowser());
         else
-            setRemoteDriver(browser);
+            setRemoteDriver(browserInPropertyFile.getBrowser());
         setTimeouts();
     }
 

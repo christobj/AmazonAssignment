@@ -1,19 +1,11 @@
 package com.assignment.driver.factory;
 
-import com.assignment.driver.OptionManager;
 import com.assignment.enums.BrowserEnum;
-import com.assignment.enums.PropertyEnum;
-import com.assignment.filereaders.PropertyReader;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.RemoteWebDriver;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.Function;
 import java.util.function.Supplier;
 
 public final class BrowserFactory {
@@ -21,22 +13,22 @@ public final class BrowserFactory {
     private BrowserFactory() {}
 
     private static final Map<String, Supplier<WebDriver>> localBrowserMap = new HashMap<>();
-    private static final String HUB_URL = PropertyReader.getProperty(PropertyEnum.HUBURL);
+    //private static final String HUB_URL = PropertyReader.getProperty(PropertyEnum.HUBURL);
     private static final Map<String, WebDriver> remoteBrowserMap = new HashMap<>();
 
-    private static final Function<Capabilities, WebDriver> remote = c -> {
-        try {
-            return new RemoteWebDriver(new URL(HUB_URL), c);
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        }
-    };
+//    private static final Function<Capabilities, WebDriver> remote = c -> {
+//        try {
+//            return new RemoteWebDriver(new URL(HUB_URL), c);
+//        } catch (MalformedURLException e) {
+//            throw new RuntimeException(e);
+//        }
+//    };
 
     static {
         localBrowserMap.put(BrowserEnum.CHROME.getBrowser(), () -> WebDriverManager.chromedriver().create());
         localBrowserMap.put(BrowserEnum.EDGE.getBrowser(), () -> WebDriverManager.edgedriver().create());
-        remoteBrowserMap.put(BrowserEnum.CHROME.getBrowser(), getRemoteWebDriverForCapability(OptionManager.getCapability(BrowserEnum.CHROME)));
-        remoteBrowserMap.put(BrowserEnum.EDGE.getBrowser(), getRemoteWebDriverForCapability(OptionManager.getCapability(BrowserEnum.EDGE)));
+//        remoteBrowserMap.put(BrowserEnum.CHROME.getBrowser(), getRemoteWebDriverForCapability(OptionManager.getCapability(BrowserEnum.CHROME)));
+//        remoteBrowserMap.put(BrowserEnum.EDGE.getBrowser(), getRemoteWebDriverForCapability(OptionManager.getCapability(BrowserEnum.EDGE)));
     }
 
     public static WebDriver getLocalDriver(String browser) {
@@ -44,9 +36,9 @@ public final class BrowserFactory {
         return localBrowserMap.get(browser).get();
     }
 
-    private static WebDriver getRemoteWebDriverForCapability(Capabilities capabilities) {
-        return remote.apply(capabilities);
-    }
+//    private static WebDriver getRemoteWebDriverForCapability(Capabilities capabilities) {
+//        return remote.apply(capabilities);
+//    }
 
     public static WebDriver getRemoteDriver(String browser) {
         return remoteBrowserMap.get(browser);
