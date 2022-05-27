@@ -45,7 +45,7 @@ public class ProductDetailsPageTests extends CoreTest {
 //        }
 //        return tabArray;
 //    }
-    @DataSupplier
+    @DataSupplier (runInParallel = true)
     public StreamEx<AboutItem> aboutItemFromSupplier() throws IOException {
         return use(CsvReader.class)
                 .withTarget(AboutItem.class)

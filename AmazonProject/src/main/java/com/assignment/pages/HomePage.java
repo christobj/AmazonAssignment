@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import static com.assignment.driver.DriverManager.getDriver;
 import static com.assignment.logging.CoreLog.log;
 
 public class HomePage extends CorePage {

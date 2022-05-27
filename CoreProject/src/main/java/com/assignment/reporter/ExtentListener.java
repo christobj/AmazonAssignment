@@ -1,7 +1,8 @@
 package com.assignment.reporter;
 
 import com.assignment.constants.CoreConstants;
-import com.assignment.driver.DriverFactory;
+import com.assignment.driver.Driver;
+import com.assignment.driver.DriverManager;
 import com.assignment.enums.LoggerEnums;
 import com.assignment.enums.PropertyEnum;
 import com.assignment.filereaders.PropertyReader;
@@ -65,7 +66,7 @@ public class ExtentListener implements ITestListener, ISuiteListener {
         if (parameters != null && parameters.length>0) {
             methodName = methodName + "_" + parameters[0].toString();
         }
-        String imagePath = ImageUtils.takeScreenshot(DriverFactory.getDriver(), methodName);
+        String imagePath = ImageUtils.takeScreenshot(DriverManager.getDriver(), methodName);
         extentMethod.get().fail(result.getThrowable(), MediaEntityBuilder.createScreenCaptureFromPath(imagePath).build());
     }
 
@@ -80,7 +81,7 @@ public class ExtentListener implements ITestListener, ISuiteListener {
     }
 
     private String getDevicename() {
-        WebDriver driver = DriverFactory.getDriver();
+        WebDriver driver = DriverManager.getDriver();
         String platform;
         String browser;
         String version;
